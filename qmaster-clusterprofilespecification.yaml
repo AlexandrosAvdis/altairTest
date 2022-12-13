@@ -1,0 +1,22 @@
+metadata:
+  apiVersion: v1
+  type: ClusterProfileSpecification
+  uid: qmaster-clusterprofilespecification
+spec:
+  clusterSpecificationId: UGE
+  enabledServices:
+    - base:core
+    - base:puppet
+    - uge:qmaster
+    - uge:webservice
+    - launch:agent
+  maxNodesLocked: false
+  maxProfiles: 0
+  minNodesLocked: false
+  minProfiles: 0
+  name: QmasterNodes
+  settings:
+    maxNodes: 25
+    minNodes: -1
+    nameFormat: ""
+    startWith: 0

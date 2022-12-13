@@ -1,0 +1,21 @@
+metadata:
+  apiVersion: v1
+  type: ClusterProfileSpecification
+  uid: execd-clusterprofilespecification
+spec:
+  clusterSpecificationId: UGE
+  enabledServices:
+    - base:core
+    - base:puppet
+    - uge:execd
+    - launch:agent
+  maxNodesLocked: false
+  maxProfiles: 0
+  minNodesLocked: false
+  minProfiles: 0
+  name: ComputeNodes
+  settings:
+    maxNodes: 25
+    minNodes: -1
+    nameFormat: ""
+    startWith: 0

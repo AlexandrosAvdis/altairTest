@@ -1,0 +1,12 @@
+metadata:
+  type: ClusterSpecification
+  apiVersion: v1
+  uid: UGE
+spec:
+  defaultSettings:
+     sge_cell_netpath: '%(qmaster)s:%(sge_root)s/%(cell_name)s'
+     sge_root: /opt/uge-8.6.18
+     nats_urls: nats://INSTALLER_HOSTNAME:4222
+  name: UGE Cluster
+  description: Univa Grid Engine Cluster
+  type: uge
