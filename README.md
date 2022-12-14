@@ -4,7 +4,7 @@ Code for investigating NavOps deployment on GCP
 Steps for deployment:
 
 1. Create a public-private key pair to facilitate SSH access to the management instance.
-   1. Issue  
+   1. Issue  ```ssh-keygen -t rsa -b 4096 -C "navops-mgmt-id" -f $HOME/.ssh/navops-mgmt-id-rsa ``` at a command line, choose a strong passphrase for the key and store it securely.
 2. Create a new project in the Google Cloud Platform, named ```navops-project```.
 3. Add the public key from step 1 to the Project Metadata. 
 4. Create a new service account in the ```navops-project```.
@@ -27,8 +27,8 @@ Steps for deployment:
      User navops-mgmt-id
      IdentityFile ~/.ssh/navops-mgmt-id-rsa
    ```
-   The <management instance IP> must be changed to the IP returned in step 8.i
+   The ```<management instance IP>``` must be changed to the IP returned in step 8.i
 8. Copy NavOps deployment files onto management instance
-   1. Run script ```copy.sh```
-9. Log on the management instance
-10. Run the commands given in script ```deploy.sh``` while crosss checking with NavOps installation documentation
+   1. Run script ```copy.sh```. Note the script uses the ssh configuration from step 8.ii.
+9. Log on the management instance.
+10. Run the commands given in script ```deploy.sh``` on the management instance, while crosss checking with NavOps installation documentation.
