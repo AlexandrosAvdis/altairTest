@@ -1,6 +1,3 @@
-#gcloud config set account navops-service-account@navops-project-<project id>.iam.gserviceaccount.com
-#gcloud auth login
-#gcloud auth list
 
 gcloud compute --project=navops-project-47315 firewall-rules create ssh         --description="SSH access" \
 	--direction=INGRESS --priority=1000 --network=default --action=ALLOW \
