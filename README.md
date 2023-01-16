@@ -1,21 +1,20 @@
 # Altair Test
-Investigating NavOps deployment on GCP
+Investigating NavOps deployment on Google Cloud Platform (GCP).
 
 Steps for deployment:
 
 1. Create a public-private key pair to facilitate SSH access to the management instance.
-   1. Issue  ```ssh-keygen -t rsa -b 4096 -C "navops-mgmt-id" -f $HOME/.ssh/navops-mgmt-id-rsa ``` at a command line, choose a strong passphrase for the key and store it securely.
+   1. Issue  ```ssh-keygen -t rsa -b 4096 -C "navops-mgmt-id" -f $HOME/.ssh/navops-mgmt-id-rsa ``` at a command line. Use a strong passphrase for the key and store it securely.
 2. Create a new project in the Google Cloud Platform, named ```navops-project```.
    1. Add the public key from step 1 to the Project Metadata. 
 3. Create a new service account in the ```navops-project```.
    1. Assign roles ```Compute Image User``` and ```Compute Admin```. See NavOps documentation for more details.
    2. Create a JSON key for the service account.
    3. Download the JSON key into the folder containing the present scripts. 
-   4. Use the gcloud CLI to log into the service account created above, using the downloaded JSON key.
-     1. On Google Cloud Console inspect the Dashboard of the ```navops-project``` and make a note of the ID.
-     2. Run ```gcloud config set account navops-service-account@navops-project-<project id>.iam.gserviceaccount.com``` in a terminal, where ```<project id>``` was noted in step 5.i above.
-     3. Run ```gcloud auth login``` in a terminal, and complete the authentication in the browser window when prompted.
-     4. Run ```gcloud auth list``` in a terminal to list the authetication details and verify you are logged into the project.
+   4. On Google Cloud Console inspect the Dashboard of the ```navops-project``` and make a note of the ID.
+   5. Use the gcloud CLI to log into the service account created above, using the downloaded JSON key: Run ```gcloud config set account navops-service-account@navops-project-<project id>.iam.gserviceaccount.com``` in a terminal, where ```<project id>``` was noted in step 3.iv above.
+   6. Run ```gcloud auth login``` in a terminal, and complete the authentication in the browser window when prompted.
+   7. Run ```gcloud auth list``` in a terminal to list the authetication details and verify you are logged into the project.
 4. Enable Compute Engine API in the Google Cloud Platform for ```navops-project```.
 5. Create the necessary firewall rules.
    1. Run script ```navops-mgmt/create-firewall-rules.sh```.
