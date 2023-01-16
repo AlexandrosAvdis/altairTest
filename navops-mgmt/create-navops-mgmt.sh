@@ -1,3 +1,7 @@
+# List project, to make sure we are on the correct GCP project
+echo "Your current GCP project is:"
+gcloud config get project
+
 navops_mgmt_ip=`gcloud compute instances describe navops-mgmt --format="get(networkInterfaces[0].accessConfigs[0].natIP)" --verbosity=none`
 [ ! -z "$navops_mgmt_ip" ] && ssh-keygen -R $navops_mgmt_ip
 [ ! -z "$navops_mgmt_ip" ] && export ssh_config_navops_line=`grep -n $navops_mgmt_ip ~/.ssh/config | awk -F: '{print $1}'`
